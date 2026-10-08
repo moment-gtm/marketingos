@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { Lock } from 'lucide-react';
 import { T, FS, FU, BrandMark } from '../GrowthControlTower.jsx';
 
-const VALID_USER = 'gtmuser';
-const VALID_PASS = 'gtm-tower';
+const VALID_USER = '2479275';
+const VALID_PASS = '@ds-user';
 
 export default function Login({ onSuccess }) {
   const [id, setId] = useState('');
