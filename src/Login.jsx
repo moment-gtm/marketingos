@@ -12,7 +12,11 @@ export default function Login({ onSuccess }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    if (id === VALID_USER && pw === VALID_PASS) {
+    const formData = new FormData(e.currentTarget);
+    const submittedId = String(formData.get('id') || '').trim();
+    const submittedPassword = String(formData.get('password') || '').trim();
+
+    if (submittedId === VALID_USER && submittedPassword === VALID_PASS) {
       sessionStorage.setItem('gct-auth', 'true');
       setError('');
       onSuccess();
@@ -51,6 +55,12 @@ export default function Login({ onSuccess }) {
           ID
         </label>
         <input
+          id="login-id"
+          name="id"
+          type="text"
+          autoComplete="username"
+          autoCapitalize="off"
+          spellCheck={false}
           autoFocus
           value={id}
           onChange={(e) => setId(e.target.value)}
@@ -65,7 +75,10 @@ export default function Login({ onSuccess }) {
           Password
         </label>
         <input
+          id="login-password"
+          name="password"
           type="password"
+          autoComplete="current-password"
           value={pw}
           onChange={(e) => setPw(e.target.value)}
           style={{
