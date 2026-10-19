@@ -32,7 +32,18 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build
-        run: npm run build
+        env:
+          VITE_LOGIN_USER_1: ${{ secrets.VITE_LOGIN_USER_1 }}
+          VITE_LOGIN_PASSWORD_1: ${{ secrets.VITE_LOGIN_PASSWORD_1 }}
+          VITE_LOGIN_USER_2: ${{ secrets.VITE_LOGIN_USER_2 }}
+          VITE_LOGIN_PASSWORD_2: ${{ secrets.VITE_LOGIN_PASSWORD_2 }}
+        run: |
+          if [ -z "$VITE_LOGIN_USER_1" ] || [ -z "$VITE_LOGIN_PASSWORD_1" ] || \
+             [ -z "$VITE_LOGIN_USER_2" ] || [ -z "$VITE_LOGIN_PASSWORD_2" ]; then
+            echo "::error::Configure all four login secrets in repository Actions secrets."
+            exit 1
+          fi
+          npm run build
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload Pages artifact

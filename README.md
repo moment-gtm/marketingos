@@ -31,6 +31,8 @@ vite.config.js           # base path set to /marketingos/ for GitHub Pages
 
 ## Local development
 
+Create an ignored `.env.local` file in the project root with the four `VITE_LOGIN_USER_*` and `VITE_LOGIN_PASSWORD_*` variables, then run:
+
 ```bash
 npm install
 npm run dev      # starts Vite dev server at http://localhost:5173/marketingos/
@@ -52,12 +54,10 @@ git push origin main
 ```
 
 GitHub Pages must use **GitHub Actions** as its build and deployment source.
+Add repository Actions secrets named `VITE_LOGIN_USER_1`, `VITE_LOGIN_PASSWORD_1`, `VITE_LOGIN_USER_2`, and `VITE_LOGIN_PASSWORD_2` for the deploy workflow.
 
 ## Security note
 
-The login gate is a lightweight speed bump for an internal demo, **not real access control**. This is a static site with no backend, so:
+The login gate is a lightweight speed bump for an internal demo, **not real access control**. Keeping credentials in `.env.local` and GitHub Actions secrets prevents them from being committed in source, but the values are embedded in the static JavaScript bundle and can be read by visitors. This does not provide real access control.
 
-- The credential pair is visible in this README and in the repo source.
-- It's also baked into the shipped JS bundle and readable via browser dev tools.
-
-Real authentication would require a backend (e.g. a serverless function or hosted auth provider) — GitHub Pages only serves static files.
+Real authentication would require a backend (e.g. a serverless function or hosted auth provider) — GitHub Pages only serves static files. Credentials previously committed remain in Git history; rotate any such credentials.

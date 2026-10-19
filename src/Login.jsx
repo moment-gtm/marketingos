@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { Lock } from 'lucide-react';
 import { T, FS, FU, BrandMark } from '../GrowthControlTower.jsx';
 
-const VALID_USER = '2479275';
-const VALID_PASS = '@ds-user';
+const VALID_CREDENTIALS = [
+  { user: import.meta.env.VITE_LOGIN_USER_1, password: import.meta.env.VITE_LOGIN_PASSWORD_1 },
+  { user: import.meta.env.VITE_LOGIN_USER_2, password: import.meta.env.VITE_LOGIN_PASSWORD_2 },
+].filter(({ user, password }) => user && password);
 
 export default function Login({ onSuccess }) {
   const [id, setId] = useState('');
@@ -16,7 +18,11 @@ export default function Login({ onSuccess }) {
     const submittedId = String(formData.get('id') || '').trim();
     const submittedPassword = String(formData.get('password') || '').trim();
 
-    if (submittedId === VALID_USER && submittedPassword === VALID_PASS) {
+    const isValid = VALID_CREDENTIALS.some(
+      ({ user, password }) => submittedId === user && submittedPassword === password,
+    );
+
+    if (isValid) {
       sessionStorage.setItem('gct-auth', 'true');
       setError('');
       onSuccess();

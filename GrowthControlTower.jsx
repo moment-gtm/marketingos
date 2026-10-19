@@ -9,7 +9,7 @@ import {
 } from 'recharts';
 
 /* ============================================================================
-   TOKENS  —  KDP Coffee Operating Unit palette.
+   TOKENS  —  Global Coffee Co. palette.
    Brand brown comes from the supplied logo (#573027). The workspace ground stays
    a cool grey and the interactive accent stays a cool teal on purpose: brown reads
    as brand against a neutral, and as theme when everything around it is warm.
@@ -56,7 +56,7 @@ const NUM = { fontVariantNumeric: 'tabular-nums', fontFeatureSettings: '"tnum"' 
 const KDP_LOGO = 'data:image/png;base64,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';
 
 export function BrandMark({ height = 22, light = false }) {
-  const img = <img src={KDP_LOGO} alt="Keurig Dr Pepper Coffee Operating Unit" style={{ height, width: 'auto', display: 'block' }} />;
+  const img = <img src={KDP_LOGO} alt="Global Coffee Co. Europe Growth Desk" style={{ height, width: 'auto', display: 'block' }} />;
   if (!light) return img;
   return <span style={{ background: '#fff', borderRadius: 3, padding: '4px 8px', display: 'inline-flex' }}>{img}</span>;
 }
@@ -84,30 +84,31 @@ function CognizantMark({ height = 14 }) {
    12 brands × 8 markets = 96 brand-market cells (a filtered slice of a 60-brand,
    100-market portfolio — the interface never presents it as the whole business).
    ========================================================================== */
-const MARKETS = ['Germany', 'France', 'Netherlands', 'UK', 'Belgium', 'Austria', 'Brazil', 'Australia'];
-const MARKET_SHORT = { Germany: 'DEU', France: 'FRA', Netherlands: 'NLD', UK: 'UK', Belgium: 'BEL', Austria: 'AUT', Brazil: 'BRA', Australia: 'AUS' };
-// Last four brands are placeholders to reach twelve — confirm with the client.
+const MARKETS = ['Germany', 'Spain', 'France', 'Italy', 'Netherlands', 'Belgium', 'Austria', 'Poland'];
+const MARKET_SHORT = { Germany: 'DEU', Spain: 'ESP', France: 'FRA', Italy: 'ITA', Netherlands: 'NLD', Belgium: 'BEL', Austria: 'AUT', Poland: 'POL' };
 const BRANDS = [
-  'Jacobs', "L'OR", 'Tassimo', 'Douwe Egberts', 'Kenco', 'Senseo',
+  'Jacobs', 'Marcilla', 'Tassimo', 'Douwe Egberts', 'Kenco', 'Senseo',
   'Pilão', 'Moccona', 'Green Mountain Coffee', 'The Original Donut Shop',
   "Peet's Coffee", 'Caribou Coffee',
 ];
 const BRAND_SHORT = {
   'Douwe Egberts': 'D. Egberts', 'Green Mountain Coffee': 'Green Mtn',
   'The Original Donut Shop': 'Donut Shop', "Peet's Coffee": "Peet's", 'Caribou Coffee': 'Caribou',
+  Marcilla: 'Marcilla',
 };
 const CATEGORIES = ['Ground Coffee', 'Coffee Pods', 'RTD Coffee', 'Espresso Systems'];
 const CATEGORY_BY_BRAND = {
-  'Jacobs': 'Ground Coffee', "L'OR": 'Coffee Pods', 'Tassimo': 'Espresso Systems',
+  'Jacobs': 'Ground Coffee', "L'OR": 'Coffee Pods', Marcilla: 'Coffee Pods', 'Tassimo': 'Espresso Systems',
   'Douwe Egberts': 'Ground Coffee', 'Kenco': 'Ground Coffee', 'Senseo': 'Coffee Pods',
   'Pilão': 'Ground Coffee', 'Moccona': 'Ground Coffee', 'Green Mountain Coffee': 'Coffee Pods',
   'The Original Donut Shop': 'Coffee Pods', "Peet's Coffee": 'Espresso Systems', 'Caribou Coffee': 'RTD Coffee',
 };
 
-// index vs target, by brand × market (Germany, France, Netherlands, UK, Belgium, Austria, Brazil, Australia)
+// index vs target, by brand × market (Germany, Spain, France, Italy, Netherlands, Belgium, Austria, Poland)
 const IDX = {
   'Jacobs':                  [100,  93, 102,  97, 101,  99,  96,  98],
   "L'OR":                    [114,  89, 108,  96, 104, 101,  97,  95],
+  Marcilla:                  [114,  89, 108,  96, 104, 101,  97,  95],
   'Tassimo':                 [ 99,  95,  97,  98,  96,  94,  92,  93],
   'Douwe Egberts':           [101,  98, 106,  99, 103,  97,  95,  96],
   'Kenco':                   [ 96,  97,  95,  94,  93,  98,  91,  99],
@@ -120,10 +121,11 @@ const IDX = {
   'Caribou Coffee':          [ 95,  93,  97,  96,  94,  92,  98, 107],
 };
 
-// revenue target YTD, $M.  L'OR France ($175.0M) is fixed so that +4 index points = +$7.0M.
+// revenue target YTD, $M.  Marcilla Spain ($175.0M) is fixed so that +4 index points = +$7.0M.
 const TGT = {
   'Jacobs':                  [210, 64, 58, 34, 46, 52, 20, 18],
   "L'OR":                    [142, 175.0, 52, 61, 38, 24, 22, 28],
+  Marcilla:                  [142, 175.0, 52, 61, 38, 24, 22, 28],
   'Tassimo':                 [88, 72, 41, 96, 34, 26, 14, 20],
   'Douwe Egberts':           [46, 74, 120, 52, 64, 18, 16, 14],
   'Kenco':                   [30, 38, 24, 98, 18, 22, 12, 36],
@@ -138,7 +140,8 @@ const TGT = {
 
 // Cells carrying a codified playbook that fits them — rendered as a corner marker on ANY signal class.
 const PLAYBOOK_MATCH = {
-  "L'OR|France": 'pb-premium',
+  "Marcilla|Spain": 'pb-premium',
+  'Marcilla|Germany': 'pb-premium',
   'Senseo|France': 'pb-premium',
   'Moccona|Australia': 'pb-premium',
   'Jacobs|Netherlands': 'pb-holiday',
@@ -169,7 +172,7 @@ const STATUS_LABEL = {
 };
 
 const AGENCY_BY_MARKET = {
-  Germany: 'Continental Collective', France: 'Continental Collective', Austria: 'Continental Collective',
+  Germany: 'Continental Collective', Spain: 'Continental Collective', France: 'Continental Collective', Austria: 'Continental Collective',
   Netherlands: 'Lowlands Media', Belgium: 'Lowlands Media',
   UK: 'Thames & Co',
   Brazil: 'Southern Cross Studio', Australia: 'Southern Cross Studio',
@@ -251,9 +254,9 @@ function buildCells() {
 
 const CELLS_BASE = buildCells();
 
-/* --- Hero case A: L'OR · France.  Exact figures, used by every stage. ------- */
+/* --- Hero case A: Marcilla · Spain. Exact figures, used by every stage. ------- */
 const HERO_A = {
-  id: "L'OR|France", brand: "L'OR", market: 'France',
+  id: "Marcilla|Spain", brand: "Marcilla", market: 'Spain',
   index: 89, target: 175.0, revenue: 155.8, gap: -19.3,
   margin: 33.4, mediaSpend: 12.6, roi: 1.2, sharePts: -1.6, health: 46, healthDelta: -4.8,
   agency: 'Continental Collective', innovation: false, leadingNote: null,
@@ -270,9 +273,9 @@ const HERO_A = {
   promo: { plan: 20, actual: 27 },
 };
 
-/* --- Hero case B: L'OR · Germany.  Exact figures — the proven answer. ------- */
+/* --- Hero case B: Marcilla · Germany. Exact figures — the proven answer. ------- */
 const HERO_B = {
-  id: "L'OR|Germany", brand: "L'OR", market: 'Germany',
+  id: "Marcilla|Germany", brand: "Marcilla", market: 'Germany',
   index: 114, target: 142.0, revenue: 161.9, gap: 19.9,
   margin: 41.2, mediaSpend: 8.2, roi: 2.9, sharePts: 1.9, health: 71, healthDelta: 5.2,
   agency: 'Continental Collective', innovation: true, leadingNote: null,
@@ -388,13 +391,13 @@ function signalsFor(cell) {
 
 // authored signals, layered on top of the rule output for the cells the client quoted by name
 const HERO_SIGNALS = {
-  "L'OR|France": [
+  "Marcilla|Spain": [
     { type: 'risk', headline: 'Revenue −$19.3M against target', detail: 'Index 89. Underperforming L\'OR Germany by 25 points — the largest single gap in the portfolio.' },
     { type: 'risk', headline: 'Promo depth 27% of volume vs 20% plan', detail: 'Margin leaking through unplanned discount depth.' },
     { type: 'risk', headline: '52% of media in linear TV', detail: 'Modeled incrementality 0.6 against retail media at 1.9.' },
     { type: 'replicate', headline: 'Playbook available: L\'OR Germany Premiumization', detail: 'Proven in Germany, Netherlands and Belgium — worth +$7M and +4 index points here.' },
   ],
-  "L'OR|Germany": [
+  "Marcilla|Germany": [
     { type: 'growth', headline: 'Running 14 pts ahead of plan', detail: '$19.9M above target on 2.9x ROI — the playbook other markets should copy.' },
     { type: 'growth', headline: 'Digital video reach 22% above the Netherlands and France', detail: 'Paired with 14% stronger retail media activation and a 9% higher premium mix.' },
   ],
@@ -598,7 +601,7 @@ const MARKET_INTEL = {
    ========================================================================== */
 const PLAYBOOKS = [
   {
-    id: 'pb-premium', name: "L'OR Germany Premiumization", pattern: 'premiumization',
+    id: 'pb-premium', name: "Marcilla Germany Premiumization", pattern: 'premiumization',
     markets: ['Germany', 'Netherlands', 'Belgium'], marketCount: 3, deployedTo: ['Netherlands', 'Belgium', 'Austria'],
     avgOutcome: '+12% growth', revenueImpact: 18.0,
     drivers: ['22% higher digital video reach', '14% stronger retail media activation', '9% higher premium mix'],
@@ -666,7 +669,7 @@ const FAMILIES = {
 
 const SEED_LOG = [
   {
-    id: 'L-01', seeded: true, period: 'Q3 2024', title: "L'OR Germany premiumization", brand: "L'OR", market: 'Germany',
+    id: 'L-01', seeded: true, period: 'Q3 2024', title: "Marcilla Germany premiumization", brand: "L'OR", market: 'Germany',
     type: 'media_support', pattern: 'premiumization', outcome: 'succeeded', roi: 3.4, result: '+$19.9M revenue, +1.9 share pts',
     drivers: ['Digital video reach +22%', 'Retail media activation +14%', 'Premium mix +9%'],
     context: 'Pilot in two regions, scaled nationally',
@@ -728,7 +731,7 @@ const ALLOC_MAX = 20;
 const ALLOC_DETENT = 10;
 const SIM_OPTIONS = [
   {
-    id: 'opt-lor-de', label: "Germany — L'OR", axis: 'brand-market', brand: "L'OR", market: 'Germany', cellId: "L'OR|Germany",
+    id: 'opt-lor-de', label: "Germany — L'OR", axis: 'brand-market', brand: "L'OR", market: 'Germany', cellId: "Marcilla|Germany",
     rev10: 15, roi10: 2.3, conf10: 83, payback10: 5, sat: 1.6, apk: 14, pattern: 'scale_spend',
     risks: ['Distribution constraints', 'Competitor response', 'Media inventory saturation'],
     reasons: ['Highest projected return', 'Proven growth playbook available', 'Strong execution confidence'],
@@ -829,7 +832,7 @@ function reallocation(scale) {
    ========================================================================== */
 const REP_CELLS = {
   'rep-lorfr': {
-    brand: "L'OR", market: 'France', note: 'Same brand, same agency, same category',
+    brand: 'Marcilla', market: 'Spain', note: 'Same brand, same agency, same category',
     attrs: [
       { attr: 'Shopper profile', score: 0.94, note: 'Same brand, same premium-skewing pod shopper' },
       { attr: 'Category conditions', score: 0.90, note: 'Premium pods growing at a similar rate' },
@@ -841,7 +844,7 @@ const REP_CELLS = {
   'rep-senseofr': {
     brand: 'Senseo', market: 'France', note: 'Retail media live, premium range absent',
     attrs: [
-      { attr: 'Shopper profile', score: 0.74, note: 'Mainstream pod shopper, skews older than L\'OR' },
+      { attr: 'Shopper profile', score: 0.74, note: 'Mainstream pod shopper, skews older than Marcilla' },
       { attr: 'Category conditions', score: 0.81, note: 'Single-serve pods growing' },
       { attr: 'Existing capabilities', score: 0.79, note: 'Retail media live; no premium range' },
     ],
@@ -849,7 +852,7 @@ const REP_CELLS = {
     need: ['Premium range built from scratch', 'Shelf space negotiated with three chains'],
   },
   'rep-moccaus': {
-    brand: 'Moccona', market: 'Australia', note: 'Needs retailer negotiation',
+    brand: 'Moccona', market: 'France', note: 'Needs retailer negotiation',
     attrs: [
       { attr: 'Shopper profile', score: 0.72, note: 'Premium instant buyer, older and larger basket' },
       { attr: 'Category conditions', score: 0.76, note: 'Premium instant growing, pods less developed' },
@@ -889,7 +892,7 @@ const REP_CELLS = {
     need: ['Premium tier ranging', 'Machine-compatible trial offer'],
   },
   'rep-caribouau': {
-    brand: 'Caribou Coffee', market: 'Australia', note: 'RTD range present',
+    brand: 'Caribou Coffee', market: 'Germany', note: 'RTD range present',
     attrs: [
       { attr: 'Shopper profile', score: 0.85, note: 'Young, convenience-led RTD buyer' },
       { attr: 'Category conditions', score: 0.88, note: 'RTD coffee growing fast' },
@@ -921,7 +924,7 @@ function candidatesFor(pbId) {
   }).sort((a, b) => b.similarity - a.similarity);
 }
 const DEFAULT_PLAYBOOK = 'pb-premium';
-const HERO_CANDIDATE = candidatesFor(DEFAULT_PLAYBOOK)[0]; // L'OR · France at 0.91
+const HERO_CANDIDATE = candidatesFor(DEFAULT_PLAYBOOK)[0]; // Marcilla · Spain at 0.91
 
 /* ============================================================================
    FR3.1 — priority items. Factor scores authored; confidence derived (§5).
@@ -929,15 +932,15 @@ const HERO_CANDIDATE = candidatesFor(DEFAULT_PLAYBOOK)[0]; // L'OR · France at 
    ========================================================================== */
 const PRIORITY_ITEMS = [
   {
-    id: 'p-lor-de-scale', defaultType: 'media_support', title: "Increase L'OR Germany investment while marginal ROI holds",
-    brand: "L'OR", market: 'Germany', verdict: 'Increase investment', action: 'Increase investment', pattern: 'scale_spend', base: 54,
+    id: 'p-lor-de-scale', defaultType: 'media_support', title: "Increase Marcilla Germany investment while marginal ROI holds",
+    brand: 'Marcilla', market: 'Germany', verdict: 'Increase investment', action: 'Increase investment', pattern: 'scale_spend', base: 54,
     f: { rev: 86, prof: 78, strat: 82, ease: 72, speed: 70 },
     value: 12.0, money: 3.0, resource: 'Media team has capacity; Continental Collective absorbs the extra weight inside the retainer.',
     funding: '$3.0M incremental — the highest-return ask', stage: 4,
   },
   {
-    id: 'p-lor-fr-repl', defaultType: 'media_support', title: "Replicate the L'OR Germany premiumization playbook to L'OR · France",
-    brand: "L'OR", market: 'France', verdict: 'Replicate campaign', action: 'Replicate campaign', pattern: 'premiumization', base: 43,
+    id: 'p-lor-fr-repl', defaultType: 'media_support', title: 'Replicate the Marcilla Germany premiumization playbook to Marcilla · Spain',
+    brand: 'Marcilla', market: 'Spain', verdict: 'Replicate campaign', action: 'Replicate campaign', pattern: 'premiumization', base: 43,
     f: { rev: 68, prof: 62, strat: 76, ease: 80, speed: 76 },
     value: 7.0, money: 2.1, resource: 'No new talent. Continental Collective already runs the Germany remit.',
     funding: '$2.1M incremental, payback inside two quarters', stage: 6,
@@ -1507,7 +1510,7 @@ function Row({ children, onClick, active, tone }) {
    ========================================================================== */
 const STAGES = [
   { n: 1, key: 'sense', name: 'Sense', q: 'Where should we focus next?', next: 'Diagnose why' },
-  { n: 2, key: 'diagnose', name: 'Diagnose', q: 'Why is L’OR France underperforming Germany?', next: 'Prioritise what matters' },
+  { n: 2, key: 'diagnose', name: 'Diagnose', q: 'Why is Marcilla Spain underperforming Germany?', next: 'Prioritise what matters' },
   { n: 3, key: 'prioritise', name: 'Prioritise', q: 'Which opportunities do we fund, and in what order?', next: 'Simulate the decision' },
   { n: 4, key: 'simulate', name: 'Simulate', q: 'How should we allocate the next $10M of growth investment?', next: 'Turn it into action' },
   { n: 5, key: 'orchestrate', name: 'Orchestrate', q: 'How do we turn decisions into action?', next: 'Scale what works' },
@@ -1564,11 +1567,12 @@ function FiltersPopover() {
   );
 }
 
-function TopChrome({ stage, selectedCell, onPickHero, onReset, onOpenCoverage, onAsk }) {
-  const a = getCell("L'OR", 'France');
-  const b = getCell("L'OR", 'Germany');
+function TopChrome({ stage, selectedCell, onPickHero, onReset, onOpenCoverage, onAsk, surface = 'control_tower', onSurfaceChange }) {
+  const a = getCell("Marcilla", 'Spain');
+  const b = getCell("Marcilla", 'Germany');
   const isA = selectedCell && selectedCell.id === a.id;
   const isB = selectedCell && selectedCell.id === b.id;
+  const surfaceLabel = surface === 'marketing_os' ? 'Marketing OS' : 'Growth Control Tower';
   return (
     <header style={{ background: T.brand, color: '#fff', borderBottom: `1px solid ${T.brandLift}` }}>
       <div className="flex items-center justify-between flex-wrap" style={{ padding: '9px 16px', gap: 12 }}>
@@ -1578,12 +1582,34 @@ function TopChrome({ stage, selectedCell, onPickHero, onReset, onOpenCoverage, o
           <div style={{ minWidth: 0 }}>
             <div style={{ fontFamily: FU, fontSize: 13, fontWeight: 600, letterSpacing: '-0.01em' }}>Assisted Decisioning System</div>
             <div style={{ fontFamily: FU, fontSize: 10.5, color: T.onBrand }}>
-              KDP · Coffee Operating Unit Marketing
+              Global Coffee Co. · Europe Growth Desk
             </div>
           </div>
         </div>
 
         <div className="flex items-center flex-wrap" style={{ gap: 10 }}>
+          <div className="flex items-center" style={{ gap: 6, background: 'rgba(255,255,255,0.08)', border: `1px solid ${T.onBrandDim}`, padding: '4px 5px' }}>
+            {['control_tower', 'marketing_os'].map((id) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => onSurfaceChange && onSurfaceChange(id)}
+                className="focus:outline-none focus:ring-2"
+                style={{
+                  padding: '5px 9px',
+                  fontFamily: FU,
+                  fontSize: 10.5,
+                  fontWeight: 700,
+                  color: surface === id ? T.brand : '#fff',
+                  background: surface === id ? '#fff' : 'transparent',
+                  border: surface === id ? `1px solid #fff` : '1px solid transparent',
+                }}
+              >
+                {id === 'control_tower' ? 'Growth Control Tower' : 'Marketing OS'}
+              </button>
+            ))}
+          </div>
+          <span style={{ fontFamily: FU, fontSize: 10.5, color: T.onBrand, ...NUM }} title="Current surface">{surfaceLabel}</span>
           <span className="inline-flex items-center flex-wrap" style={{ gap: 8 }}>
             <span style={{ fontFamily: FU, fontSize: 10.5, color: T.onBrand, ...NUM }}>{PORTFOLIO_CONTEXT}</span>
             <FiltersPopover />
@@ -1594,7 +1620,7 @@ function TopChrome({ stage, selectedCell, onPickHero, onReset, onOpenCoverage, o
               gap: 5, fontFamily: FU, fontSize: 10, fontWeight: 700, color: '#FFE2A8',
               border: '1px dashed #C9A34E', padding: '3px 8px', letterSpacing: '0.04em',
             }}
-            title="Every figure in this tool is fabricated for demonstration. Nothing here is KDP reporting."
+            title="Every figure in this tool is fabricated for demonstration. Nothing here is Global Coffee Co. reporting."
           >
             <AlertCircle size={11} /> SYNTHETIC DATA
           </span>
@@ -1715,7 +1741,7 @@ function Intro({ onDismiss }) {
           <ol style={{ marginTop: 14 }}>
             {[
               '12 of 60 coffee brands across 8 markets, with the next decision on every screen.',
-              'L’OR France is missing plan; L’OR Germany has the playbook that fixes it.',
+              'Marcilla Spain is missing plan; Marcilla Germany has the playbook that fixes it.',
               'What you decide here changes what the tower recommends next — by stage 8 you will see it.',
             ].map((l, i) => (
               <li key={i} className="flex" style={{ gap: 10, marginBottom: 9 }}>
@@ -1780,7 +1806,7 @@ const CLIENT_FEEDBACK = [
   ['CF-5', 'Key Driver read on the lattice with a “Diagnose why” bridge', 1, 'Sense · Key Driver panel'],
   ['CF-6', 'Four signal classes in the legend and queue filters', 1, 'Sense · legend and queue'],
   ['CF-7', 'Portfolio context string and the filters affordance', 1, 'Top chrome · context and filters popover'],
-  ['CF-8', 'Diagnose asks “Why is L’OR France underperforming Germany?”', 2, 'Diagnose · stage question'],
+  ['CF-8', 'Diagnose asks “Why is Marcilla Spain underperforming Germany?”', 2, 'Diagnose · stage question'],
   ['CF-9', 'Six marketing-specific root-cause drivers, weights sum to 100', 2, 'Diagnose · root cause'],
   ['CF-10', 'AI Root Cause Assessment, labelled as rule-weighted lookup', 2, 'Diagnose · assessment block'],
   ['CF-11', 'What changed vs last quarter, coloured by help or harm', 2, 'Diagnose · trend panel'],
@@ -2025,8 +2051,8 @@ function PortfolioLattice({ selected, onSelect, onHover, overlay, catFilter }) {
 
 // the client's three focus areas, ranked — dollar figures are the client's own anchors
 const PRIORITY_GROWTH = [
-  { rank: 1, area: 'Germany · Coffee Pods', cellId: "L'OR|Germany", value: 12, action: 'Increase investment', tone: 'Increase investment' },
-  { rank: 2, area: "France · L'OR RTD", cellId: "L'OR|France", value: 8, action: 'Replicate the Germany campaign', tone: 'Replicate campaign' },
+  { rank: 1, area: 'Germany · Coffee Pods', cellId: "Marcilla|Germany", value: 12, action: 'Increase investment', tone: 'Increase investment' },
+  { rank: 2, area: "France · L'OR RTD", cellId: "Marcilla|Spain", value: 8, action: 'Replicate the Germany campaign', tone: 'Replicate campaign' },
   { rank: 3, area: 'Netherlands · Seasonal', cellId: 'Douwe Egberts|Netherlands', value: 5, action: 'Accelerate activation', tone: 'Accelerate activation' },
 ];
 
@@ -2062,7 +2088,7 @@ function SenseView({ state, set, go }) {
 
   const recommendations = [
     { text: 'Increase Germany Coffee Pods investment by $3M', to: 'Simulate', run: () => { set({ simOption: 'opt-lor-de', selectedCell: { brand: "L'OR", market: 'Germany' } }); go(4); } },
-    { text: "Replicate the L'OR Germany premiumization playbook into France", to: 'Replicate', run: () => { set({ playbook: DEFAULT_PLAYBOOK, repOpen: HERO_CANDIDATE.id, selectedCell: { brand: "L'OR", market: 'France' } }); go(6); } },
+    { text: "Replicate the Marcilla Germany premiumization playbook into France", to: 'Replicate', run: () => { set({ playbook: DEFAULT_PLAYBOOK, repOpen: HERO_CANDIDATE.id, selectedCell: { brand: "L'OR", market: 'France' } }); go(6); } },
     { text: 'Reallocate spend from Kenco UK to Pilão Brazil', to: 'Optimise', run: () => go(7) },
     { text: 'Investigate the Tassimo UK distribution decline', to: 'Diagnose', run: () => { set({ selectedCell: { brand: 'Tassimo', market: 'UK' } }); go(2); } },
   ];
@@ -2367,7 +2393,7 @@ function benchmarkRows(cell, cmpBrand) {
 
 function keyLearning(best, sel) {
   if (best.id === HERO_B.id && sel.id === HERO_A.id) {
-    return { head: 'L’OR Germany achieves', lines: PLAYBOOK_BY_ID[DEFAULT_PLAYBOOK].drivers };
+    return { head: 'Marcilla Germany achieves', lines: PLAYBOOK_BY_ID[DEFAULT_PLAYBOOK].drivers };
   }
   if (best.id === sel.id) return { head: `${best.brand} ${best.market} is the benchmark`, lines: ['The strongest read for this brand — codify it as a playbook before it drifts.'] };
   const share = (c, n) => c.mix.find((m) => m.channel === n).share;
@@ -2461,7 +2487,7 @@ function DiagnoseView({ state, set, go }) {
               ))}
               <div style={{ background: T.growthWash, border: `1px solid ${T.growth}33`, padding: '9px 10px', marginTop: 4 }}>
                 <div style={{ fontFamily: FU, fontSize: 12, fontWeight: 700, color: T.ink }}>
-                  {cell.id === HERO_B.id ? 'The winning play: L’OR Germany Premiumization' : 'Pattern worth naming'}
+                  {cell.id === HERO_B.id ? 'The winning play: Marcilla Germany Premiumization' : 'Pattern worth naming'}
                 </div>
                 <div style={{ fontFamily: FU, fontSize: 11.5, color: T.ink, marginTop: 3, lineHeight: 1.5 }}>
                   {cell.id === HERO_B.id
@@ -3470,7 +3496,7 @@ function composeAnswer(qIndex, state) {
     const causes = causesFor(a);
     const ai = aiAssessmentFor(a, causes);
     return {
-      text: `L’OR France is at index ${a.index} against ${b.index} in Germany — ${fmtM(a.gap)} to plan. ${causes[0].cause} explains ${causes[0].weight}% and ${causes[1].cause.toLowerCase()} ${causes[1].weight}% (rule-weighted confidence ${ai.conf}%). The Germany premiumization playbook is worth ${fmtRev(PLAYBOOK_BY_ID[DEFAULT_PLAYBOOK].impact)} here.`,
+      text: `Marcilla Spain is at index ${a.index} against ${b.index} in Germany — ${fmtM(a.gap)} to plan. ${causes[0].cause} explains ${causes[0].weight}% and ${causes[1].cause.toLowerCase()} ${causes[1].weight}% (rule-weighted confidence ${ai.conf}%). The Germany premiumization playbook is worth ${fmtRev(PLAYBOOK_BY_ID[DEFAULT_PLAYBOOK].impact)} here.`,
       stage: 2, label: 'Open Diagnose', run: (set) => set({ selectedCell: { brand: "L'OR", market: 'France' } }),
     };
   }
@@ -3757,7 +3783,7 @@ function ReplicateView({ state, set, go, replicateTo }) {
   const open = state.repOpen;
   const done = state.interventions.filter((i) => i.source && i.source.startsWith('Replicate'));
   const doneKeys = new Set(done.map((d) => d.repKey));
-  const origin = pb.id === DEFAULT_PLAYBOOK ? getCell("L'OR", 'Germany') : null;
+  const origin = pb.id === DEFAULT_PLAYBOOK ? getCell('Marcilla', 'Germany') : null;
   const choosePlaybook = (id) => set({ playbook: id, repOpen: candidatesFor(id)[0].id });
 
   return (
@@ -3916,7 +3942,7 @@ function ReplicateView({ state, set, go, replicateTo }) {
             </div>
             {origin && (
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 10, marginTop: 10, paddingTop: 9, borderTop: `1px solid ${T.ruleSoft}` }}>
-                <Readout label="Proven on" value="L’OR · Germany" size="sm" />
+                <Readout label="Proven on" value="Marcilla · Germany" size="sm" />
                 <Readout label="ROI" value={`${origin.roi.toFixed(1)}x`} size="sm" tone={T.growth} sub={`Portfolio ${PORTFOLIO_AVG_ROI.toFixed(1)}x`} />
                 <Readout label="Index" value={`${origin.index}`} size="sm" tone={T.growth} />
                 <Readout label="Revenue above plan" value={fmtM(origin.gap)} size="sm" tone={T.growth} />
@@ -3959,25 +3985,25 @@ function ReplicateView({ state, set, go, replicateTo }) {
    ========================================================================== */
 const MARKET_READ = {
   Germany: 'Best effectiveness — the source of the play being replicated',
-  France: 'Largest absolute gap, largest absolute upside',
+  Spain: 'Largest absolute gap, largest replication upside',
+  France: 'Strong; selected brands remain close to plan',
+  Italy: 'Mixed performance across the portfolio',
   Netherlands: 'Strong; premiumization already rolled out',
-  UK: 'Linear TV still heavy; share under pressure',
   Belgium: 'Steady; follows the Netherlands',
   Austria: 'Thin; Peet’s is the standout',
-  Brazil: 'Pilão carrying the market',
-  Australia: 'Steady; Caribou and Moccona split the upside',
+  Poland: 'Developing market; monitor performance',
 };
 
 /* Recommended Interventions — each carries an expected impact and creates an Orchestrate record */
 function recommendedInterventions() {
   const item = (id) => PRIORITY_ITEMS.find((p) => p.id === id);
-  const ukTv = CELLS.filter((c) => c.market === 'UK').reduce((a, c) => a + c.mediaSpend * c.mix.find((m) => m.channel === 'Linear TV').share / 100 * 0.15, 0);
+  const franceTv = CELLS.filter((c) => c.market === 'France').reduce((a, c) => a + c.mediaSpend * c.mix.find((m) => m.channel === 'Linear TV').share / 100 * 0.15, 0);
   const podsImpact = candidatesFor('pb-pods').reduce((a, c) => a + c.impact, 0);
   const lorDe = item('p-lor-de-scale'); const lorFr = item('p-lor-fr-repl');
   return [
-    { text: "Increase investment in L'OR Germany", impact: `${fmtRev(lorDe.value)} revenue`, value: lorDe.value, brand: "L'OR", market: 'Germany', type: 'media_support', pattern: 'scale_spend', functions: ['Media', 'Brand marketing', 'Finance'] },
-    { text: 'Scale the Germany premiumization campaign to France', impact: `${fmtRev(lorFr.value)} revenue`, value: lorFr.value, brand: "L'OR", market: 'France', type: 'media_support', pattern: 'premiumization', functions: ['Brand marketing', 'Media', 'Category'] },
-    { text: 'Reduce linear TV spend in the UK', impact: `Releases ${fmtM(r1(ukTv))}`, value: r1(ukTv), brand: 'Kenco', market: 'UK', type: 'budget_shift', pattern: 'media_mix', functions: ['Media', 'Finance'] },
+    { text: 'Increase investment in Marcilla Germany', impact: `${fmtRev(lorDe.value)} revenue`, value: lorDe.value, brand: 'Marcilla', market: 'Germany', type: 'media_support', pattern: 'scale_spend', functions: ['Media', 'Brand marketing', 'Finance'] },
+    { text: 'Scale the Germany premiumization campaign to Spain', impact: `${fmtRev(lorFr.value)} revenue`, value: lorFr.value, brand: 'Marcilla', market: 'Spain', type: 'media_support', pattern: 'premiumization', functions: ['Brand marketing', 'Media', 'Category'] },
+    { text: 'Reduce linear TV spend in France', impact: `Releases ${fmtM(r1(franceTv))}`, value: r1(franceTv), brand: 'Jacobs', market: 'France', type: 'budget_shift', pattern: 'media_mix', functions: ['Media', 'Finance'] },
     { text: 'Deploy the Premium Pods Expansion playbook across EMEA', impact: `${fmtRev(r1(podsImpact))} revenue`, value: r1(podsImpact), brand: 'Senseo', market: 'France', type: 'media_support', pattern: 'pods_expansion', functions: ['Brand marketing', 'Shopper marketing', 'Media'] },
   ];
 }
@@ -3992,7 +4018,7 @@ function OptimiseView({ state, set, go, createIntervention }) {
   const load = useMemo(() => agencyLoad(CELLS, state.interventions), [state.interventions]);
   const hottest = load[0];
   const coolest = load[load.length - 1];
-  const repAgency = load.find((a) => a.agency === getCell("L'OR", 'France').agency) || hottest;
+  const repAgency = load.find((a) => a.agency === getCell('Marcilla', 'Spain').agency) || hottest;
   const interventionRows = useMemo(() => recommendedInterventions(), []);
 
   return (
@@ -4143,7 +4169,7 @@ function OptimiseView({ state, set, go, createIntervention }) {
           ))}
           <div style={{ background: T.warnWash, border: `1px dashed ${T.warn}`, padding: '8px 10px', marginTop: 4 }}>
             <div style={{ fontFamily: FU, fontSize: 11.5, color: T.ink, lineHeight: 1.5 }}>
-              {repAgency.agency} is at {repAgency.util}% while {coolest.agency} sits at {coolest.util}%. The L’OR France
+              {repAgency.agency} is at {repAgency.util}% while {coolest.agency} sits at {coolest.util}%. The Marcilla Spain
               replication needs {repAgency.agency}, so either the retainer grows or one of its lower-value cells moves
               to {coolest.agency}.
             </div>
@@ -4367,7 +4393,7 @@ function Flywheel({ state, go, onNode }) {
           })}
           {counts.decisions === 0 && (
             <div style={{ fontFamily: FU, fontSize: 11, color: T.onBrand, marginTop: 7, lineHeight: 1.5 }}>
-              The loop is not closed yet. Replicate the L’OR Germany playbook to L’OR France, act on the record in
+              The loop is not closed yet. Replicate the Marcilla Germany playbook to Marcilla Spain, act on the record in
               Orchestrate, then come back — the last node lights up when a ranked decision changes.
             </div>
           )}
@@ -4553,7 +4579,7 @@ function LearnView({ state, set, go, jumpTo }) {
             ))}
             <div style={{ background: T.replicateWash, border: `1px solid ${T.replicate}33`, padding: '8px 10px', marginTop: 9 }}>
               <div style={{ fontFamily: FU, fontSize: 11.5, color: T.ink, lineHeight: 1.5 }}>
-                The L’OR Germany Premiumization playbook now has {premium.matches} logged instance{premium.matches === 1 ? '' : 's'}
+                The Marcilla Germany Premiumization playbook now has {premium.matches} logged instance{premium.matches === 1 ? '' : 's'}
                 {premium.inFlight ? `, ${premium.inFlight} of them started this session` : ''}. That is what lifts its
                 confidence on the ranked list.
               </div>
@@ -4573,7 +4599,8 @@ function LearnView({ state, set, go, jumpTo }) {
    ========================================================================== */
 const INITIAL_STATE = {
   stage: 1,
-  selectedCell: { brand: "L'OR", market: 'France' },
+  surface: 'control_tower',
+  selectedCell: { brand: "Marcilla", market: 'Spain' },
   priorityWeights: { ...DEFAULT_WEIGHTS },
   simOption: RECOMMENDED_OPTION,
   simulation: { alloc: ALLOC_DETENT, scenario: null, projectedOutcome: simulate(RECOMMENDED_OPTION, ALLOC_DETENT, null) },
@@ -4693,7 +4720,7 @@ export default function GrowthControlTower() {
 
   const reset = useCallback(() => {
     seq.current = { int: 0, log: 0 };
-    setState({ ...INITIAL_STATE, priorityWeights: { ...DEFAULT_WEIGHTS }, outcomesLog: [...SEED_LOG], interventions: [], justAdded: [] });
+    setState({ ...INITIAL_STATE, surface: 'control_tower', priorityWeights: { ...DEFAULT_WEIGHTS }, outcomesLog: [...SEED_LOG], interventions: [], justAdded: [] });
     setToast({ kind: 'reset', text: 'Session reset. The seven seeded outcomes are still in the log.' });
   }, []);
 
@@ -4710,7 +4737,7 @@ export default function GrowthControlTower() {
 
   function primaryAction() {
     const s = state.stage;
-    if (s === 1) return { label: 'Next: diagnose why L’OR France is missing plan', run: () => { set({ selectedCell: { brand: "L'OR", market: 'France' } }); go(2); } };
+    if (s === 1) return { label: 'Next: diagnose why Marcilla Spain is missing plan', run: () => { set({ selectedCell: { brand: "Marcilla", market: 'Spain' } }); go(2); } };
     if (s === 2) return { label: 'Next: see where this ranks against everything else', run: () => go(3) };
     if (s === 3) return { label: 'Next: decide how to allocate the next $10M', run: () => go(4) };
     if (s === 4) {
@@ -4798,6 +4825,8 @@ export default function GrowthControlTower() {
         <TopChrome
           stage={state.stage}
           selectedCell={state.selectedCell}
+          surface={state.surface}
+          onSurfaceChange={(next) => set({ surface: next })}
           onPickHero={(c) => { set({ selectedCell: { brand: c.brand, market: c.market } }); if (state.stage === 1) go(2); }}
           onReset={reset}
           onOpenCoverage={() => setCoverage(true)}
