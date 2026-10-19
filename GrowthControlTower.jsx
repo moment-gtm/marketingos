@@ -1572,7 +1572,7 @@ function TopChrome({ stage, selectedCell, onPickHero, onReset, onOpenCoverage, o
   const b = getCell("Marcilla", 'Germany');
   const isA = selectedCell && selectedCell.id === a.id;
   const isB = selectedCell && selectedCell.id === b.id;
-  const surfaceLabel = surface === 'marketing_os' ? 'Marketing OS' : 'Growth Control Tower';
+  const surfaceLabel = surface === 'marketing_os' ? 'Content Supply Chain' : 'Assisted Decisioning System';
   return (
     <header style={{ background: T.brand, color: '#fff', borderBottom: `1px solid ${T.brandLift}` }}>
       <div className="flex items-center justify-between flex-wrap" style={{ padding: '9px 16px', gap: 12 }}>
@@ -1580,7 +1580,7 @@ function TopChrome({ stage, selectedCell, onPickHero, onReset, onOpenCoverage, o
           <BrandMark height={26} light />
           <span style={{ width: 1, height: 22, background: T.onBrandDim }} />
           <div style={{ minWidth: 0 }}>
-            <div style={{ fontFamily: FU, fontSize: 13, fontWeight: 600, letterSpacing: '-0.01em' }}>Assisted Decisioning System</div>
+            <div style={{ fontFamily: FU, fontSize: 13, fontWeight: 600, letterSpacing: '-0.01em' }}>Marketing OS</div>
             <div style={{ fontFamily: FU, fontSize: 10.5, color: T.onBrand }}>
               Global Coffee Co. · Europe Growth Desk
             </div>
@@ -1605,7 +1605,7 @@ function TopChrome({ stage, selectedCell, onPickHero, onReset, onOpenCoverage, o
                   border: surface === id ? `1px solid #fff` : '1px solid transparent',
                 }}
               >
-                {id === 'control_tower' ? 'Growth Control Tower' : 'Marketing OS'}
+                {id === 'control_tower' ? 'Assisted Decisioning System' : 'Content Supply Chain'}
               </button>
             ))}
           </div>

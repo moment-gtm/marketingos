@@ -51,7 +51,7 @@ export default function Login({ onSuccess }) {
             fontFamily: FS, fontSize: 19, color: T.navy, marginBottom: 4, letterSpacing: '-0.01em',
           }}
         >
-          Assisted Decisioning System
+          Marketing OS
         </div>
         <div style={{ fontFamily: FU, fontSize: 12, color: T.ink60, marginBottom: 22 }}>
           Sign in to continue
